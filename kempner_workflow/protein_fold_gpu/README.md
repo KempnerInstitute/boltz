@@ -44,10 +44,14 @@ QLEDSEVEAVAKGLEEMYANGVTEDNFKNYVKNNFAQQEISSVEEELNVNISDSCVANKIKDEFFAMISISAIVKAAQKK
 ---
 
 ## Running the Workflow
-Open the file file `boltz_single_pipeline_gpu.slrm` and define the variable with the correct input fasta filename.
+
+Open the file file `boltz_single_pipeline_gpu.slrm` and define the variable with the correct input fasta filename, and the GPU specifications. 
 ```
 INPUT_FASTA="input.fa"
+export CUDA_VISIBLE_DEVICES=0
+export NUM_GPU_DEVICES=1
 ```
+Make sure you are setting up the GPU device specficiations properly. For using two GPUs, CUDA_VISIBLE_DEVICES=0,1 and NUM_GPU_DEVICES=2.
 
 To submit the Slurm batch job:
 
