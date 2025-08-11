@@ -1,78 +1,79 @@
+
+
 # Protein Folding on CPU — Kempner Workflow
 
-This directory provides an example workflow for running **Boltz-based protein folding using CPU-only resources**. It is optimized for environments without GPU access, providing reproducible and accessible structure prediction.
+This directory provides an example workflow for running **Boltz-based protein folding using CPU-only resources**.  
+It is designed for environments without GPU access, offering reproducible and accessible protein structure prediction.
 
 ---
 
-##  Overview
+## Overview
 
-Execute a protein structure prediction pipeline on CPU using the Boltz framework. This workflow demonstrates how to:
+This workflow executes a protein structure prediction pipeline on CPU using the **Boltz** framework. It demonstrates:
 
-- Runs the Colabfold search on the locally on the Kempner Cluster
-- The MSA file (.a3m extention) is used by Boltz for the next stage prediction
+- Running **ColabFold** search locally on the Kempner Cluster  
+- Using the generated MSA file (`.a3m` extension) as input to **Boltz** for structure prediction
 
 ---
 
-##  Prerequisites
+## Prerequisites
 
-- Python ≥ 3.10
-- Boltz library
-- Colabfold
-- Boltz database
-- Colabfold database
+- Python ≥ 3.10  
+- **Boltz** library  
+- **ColabFold**  
+- **Boltz database**  
+- **ColabFold database**  
 
-All of these are pre-built on the cluster. It is optional to install them in your space. 
+> **Note:** All of these are pre-installed on the Kempner Cluster.  
+> Installation in your own space is optional.
 
-  ---
+---
 
-##  Input Format
+## Input Format
 
-Create input fasta file. **Important** For now, the pipeline only supports fasta format. 
+Create an input FASTA file.  
+**Important:** Currently, the pipeline supports only FASTA format.
 
-example
-```
+**Example:**
+```fasta
 >A|protein|
 QLEDSEVEAVAKGLEEMYANGVTEDNFKNYVKNNFAQQEISSVEEELNVNISDSCVANKIKDEFFAMISISAIVKAAQKKAWKELAVTVLRFAKANGLKTNAIIVAGQLALWAVQCG
 ```
 
+---
+
+## Running the Workflow
+Open the file file `boltz_single_pipeline_cpu.slrm` and define the variable with the correct input fasta filename.
+```
+INPUT_FASTA="input.fa"
+```
+
+To submit the Slurm batch job:
+
+```bash
+sbatch boltz_single_pipeline_cpu.slrm
+```
+
+Update the SLURM script to adjust job resources (e.g., CPU cores, memory) as needed. You need to add partition name and account name. 
 
 ---
 
+## Output
 
-
-##  Running the Workflow
-
-### 1. Local Execution
-
-```bash
-cd kempner_workflow/protein_fold_cpu
-python run_fold_cpu.py --input <input.yaml> --output <output_dir>
-```
-
-### 2. Cluster Execution (e.g., SLURM)
-
-If your system uses job scheduling:
-
-```bash
-sbatch run_fold_cpu.slurm
-```
-
-Make sure to update job resource settings (e.g., CPU cores, memory) as needed.
-
----
-
-##  Output
-
-Output from Colabfold search that generates the msa file. 
+### 1. ColabFold Search Output
+Generates the MSA file:
 ```
 Output_colabfold/local_search_cpu/
 └── A_protein_.a3m
 ```
-Boltz workflow outputs:
 
-- 3D structures (typically PDB files) of the predicted protein conformations
-- Logs detailing runtime performance and runtime errors
-- Optional metrics for folding quality, if implemented
+### 2. Boltz Workflow Output
+Includes:
+- 3D structures (PDB/CIF) of predicted protein conformations  
+- Logs of runtime performance and errors  
+- Folding quality metrics (if implemented)  
+
+Example structure:
 ```
 Output_boltz/prot_pipeline_cpu
 └── boltz_results_prot_pipeline
@@ -101,8 +102,5 @@ Output_boltz/prot_pipeline_cpu
         ├── structures
         │   └── prot_pipeline.npz
         └── templates
-```   
-
-
----
+```
 
