@@ -51,7 +51,7 @@ INPUT_FASTA="input.fa"
 export CUDA_VISIBLE_DEVICES=0
 export NUM_GPU_DEVICES=1
 ```
-Make sure you are setting up the GPU device specficiations properly. For using two GPUs, CUDA_VISIBLE_DEVICES=0,1 and NUM_GPU_DEVICES=2.
+Make sure you are setting up the GPU device specficiations properly. For using two GPUs, the GPU device specification is defined as CUDA_VISIBLE_DEVICES=0,1 and NUM_GPU_DEVICES=2.
 
 To submit the Slurm batch job:
 
