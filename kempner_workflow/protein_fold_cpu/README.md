@@ -1,6 +1,6 @@
 
 
-# Protein Folding on CPU — Kempner Workflow
+# Protein Folding on CPU 
 
 This directory provides an example workflow for running **Boltz-based protein folding using CPU-only resources**.  
 It is designed for environments without GPU access, offering reproducible and accessible protein structure prediction.
