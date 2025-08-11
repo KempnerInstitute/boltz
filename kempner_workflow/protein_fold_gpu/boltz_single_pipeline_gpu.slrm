@@ -22,7 +22,7 @@ BOLTZ_CACHE="/n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/boltz_db"
 BOLTZ_OUTPUT_DIR="Output_boltz/prot_pipeline_cpu"
 TEMP_FASTA="prot_pipeline.fasta"
 THREADS=$SLURM_CPUS_PER_TASK 
-# Set CPU mode (no GPU for Boltz)
+# Set GPU specifications for mmseq2 and boltz calculations
 export CUDA_VISIBLE_DEVICES=0
 export NUM_GPU_DEVICES=1
 
