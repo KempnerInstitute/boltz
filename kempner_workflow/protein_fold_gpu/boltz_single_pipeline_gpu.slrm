@@ -4,11 +4,11 @@
 #SBATCH --cpus-per-task=16
 #SBATCH --gpus-per-node=1
 #SBATCH --mem=256GB
-#SBATCH --partition=<kempner-partition>
-#SBATCH --account=<kempner-account?
+#SBATCH --partition=kempner_h100
+#SBATCH --account=kempner_dev 
 #SBATCH --time=4:00:00
-#SBATCH --output=boltz_pipeline_gpu-%N.%x.%j.out
-#SBATCH --error=boltz_pipeline_gpu-%N.%x.%j.err
+#SBATCH --output=gpu_boltz_pipeline-%N.%x.%j.out
+#SBATCH --error=gpu_boltz_pipeline%N.%x.%j.err
 
 # ==========================================
 # BOLTZ PIPELINE - Single SLURM Script
@@ -16,15 +16,17 @@
 
 # Define Variables
 INPUT_FASTA="input.fa"
-MMSEQ2_DB="/n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db"
-COLABFOLD_OUTPUT_DIR="Output_colabfold/local_search_cpu"
-BOLTZ_CACHE="/n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/boltz_db"
-BOLTZ_OUTPUT_DIR="Output_boltz/prot_pipeline_cpu"
+COLABFOLD_OUTPUT_DIR="Output_colabfold/local_search_gpu"
 TEMP_FASTA="prot_pipeline.fasta"
+BOLTZ_OUTPUT_DIR="Output_boltz/prot_pipeline_gpu"
+
 THREADS=$SLURM_CPUS_PER_TASK 
 # Set GPU specifications for mmseq2 and boltz calculations
 export CUDA_VISIBLE_DEVICES=0
 export NUM_GPU_DEVICES=1
+
+MMSEQ2_DB="/n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db"
+BOLTZ_CACHE="/n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/boltz_db"
 
 echo "==============================================="
 echo "BOLTZ PIPELINE STARTED"
