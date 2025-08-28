@@ -1,8 +1,8 @@
 
 
-# Protein Folding on GPU 
+# Protein Folding on GPU
 
-This directory provides an example workflow for running **Boltz-based protein folding using GPU resources**.  
+This directory provides an example workflow for running **Boltz-based protein folding using GPU resources**.
 It is designed for environments with GPU access, offering reproducible and accessible protein structure prediction.
 
 ---
@@ -11,7 +11,7 @@ It is designed for environments with GPU access, offering reproducible and acces
 
 This workflow executes a protein structure prediction pipeline on GPU using the **Boltz** framework. It demonstrates:
 
-- Running **ColabFold** search locally on the Kempner Cluster  
+- Running **ColabFold** search locally on the Kempner Cluster
 - Using the generated MSA file (`.a3m` extension) as input to **Boltz** for structure prediction
 
 ---
@@ -20,19 +20,19 @@ This workflow executes a protein structure prediction pipeline on GPU using the 
 
 - Python ≥ 3.10
 - cuda and cudann libraries
-- **Boltz** library  
-- **ColabFold**  
-- **Boltz database**  
-- **ColabFold database**  
+- **Boltz** library
+- **ColabFold**
+- **Boltz database**
+- **ColabFold database**
 
-> **Note:** All of these are pre-installed on the Kempner Cluster.  
+> **Note:** All of these are pre-installed on the Kempner Cluster.
 > Installation in your own space is optional.
 
 ---
 
 ## Input Format
 
-Create an input FASTA file.  
+Create an input FASTA file.
 **Important:** Currently, the pipeline supports only FASTA format.
 
 **Example:**
@@ -45,7 +45,7 @@ QLEDSEVEAVAKGLEEMYANGVTEDNFKNYVKNNFAQQEISSVEEELNVNISDSCVANKIKDEFFAMISISAIVKAAQKK
 
 ## Running the Workflow
 
-Open the file file `boltz_single_pipeline_gpu.slrm` and define the variable with the correct input fasta filename, and the GPU specifications. 
+Open the file file `boltz_single_pipeline_gpu.slrm` and define the variable with the correct input fasta filename, and the GPU specifications.
 ```
 INPUT_FASTA="input.fa"
 export CUDA_VISIBLE_DEVICES=0
@@ -59,9 +59,32 @@ To submit the Slurm batch job:
 sbatch boltz_single_pipeline_gpu.slrm
 ```
 
-Update the SLURM script to adjust job resources (e.g., GPU. CPU cores, memory) as needed. You need to add partition name and account name. 
+Update the SLURM script to adjust job resources (e.g., GPU. CPU cores, memory) as needed. You need to add partition name and account name.
 
 ---
+
+
+### Generating Boltz Predictions on Multiple Fasta Files
+
+To generate the Boltz predictions on the Kempner cluster you run from the login node the following command:
+
+```{bash}
+source slrm_scripts/multi_pred.sh  INPUT_DIR N OUT_DIR
+```
+
+The script will:
+
+- Divide the input dir files into n sets, generate .txt containing the path to each .fasta (one per set)
+- create an out_dir/chunks_timestamp/ directory where the predictions will be stored
+
+- start N jobs launching the script: slrm_scripts/single_prediction.slrm n times (you can modify the resource of each job by modifying this script)
+
+- Predictions are saved as:
+
+out_dir/chunks_timestamp/
+    job_id/
+        boltz/ # prediction boltz
+        msa/ # msa generated
 
 ## Output
 
@@ -74,9 +97,9 @@ Output_colabfold/local_search_gpu/
 
 ### 2. Boltz Workflow Output
 Includes:
-- 3D structures (PDB/CIF) of predicted protein conformations  
-- Logs of runtime performance and errors  
-- Folding quality metrics (if implemented)  
+- 3D structures (PDB/CIF) of predicted protein conformations
+- Logs of runtime performance and errors
+- Folding quality metrics (if implemented)
 
 Example structure:
 ```
