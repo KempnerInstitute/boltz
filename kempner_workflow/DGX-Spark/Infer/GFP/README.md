@@ -4,3 +4,6 @@ The example here runs the boltz2 inference for a given FASTA file. The inference
 
 process_single_file.sh runs a single file prediction. 
 process_single_batch.sh the predictions on all the fasta files in a given directory. 
+
+The above scripts run the python querry script located ../Script/query_boltz.py
+
