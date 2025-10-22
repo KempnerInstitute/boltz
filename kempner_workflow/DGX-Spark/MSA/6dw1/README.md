@@ -17,3 +17,5 @@ INPUT="6dw1.fasta"
 RUNS=10
 ```
 
+Executing run_benchmark.sh will create a directory named benchmark_{TIMESTAMP}, which contains all results, including timing information and the generated A3M files.
+
