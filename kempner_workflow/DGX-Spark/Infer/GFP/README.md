@@ -1,9 +1,24 @@
 
-#GFP
-The example here runs the boltz2 inference for a given FASTA file. The inference is done without MSA.
 
-process_single_file.sh runs a single file prediction. 
-process_single_batch.sh the predictions on all the fasta files in a given directory. 
+# GFP Inference
 
-The above scripts run the python querry script located ../Script/query_boltz.py
+This example demonstrates how to run **Boltz2 inference** on a given FASTA file.  
+The inference is performed **without MSA (Multiple Sequence Alignment)**.
 
+## Scripts
+
+- **`process_single_file.sh`** — Runs inference on a single FASTA file.  
+- **`process_single_batch.sh`** — Runs inference on all FASTA files within a specified directory.  
+
+Both scripts call the Python query script located at:  
+```bash
+../Script/query_boltz.py
+```
+
+## Example Usage
+
+### Run inference on a single FASTA file
+bash process_single_file.sh input.fasta
+
+### Run inference on all FASTA files in a directory
+bash process_single_batch.sh /path/to/fasta_directory
