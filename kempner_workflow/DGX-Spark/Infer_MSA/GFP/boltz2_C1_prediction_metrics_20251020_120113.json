@@ -1,0 +1,36 @@
+{
+  "timestamp": "20251020_120113",
+  "confidence_scores": [
+    0.9418574571609497
+  ],
+  "average_confidence": 0.9418574571609497,
+  "max_confidence": 0.9418574571609497,
+  "min_confidence": 0.9418574571609497,
+  "num_structures": 1,
+  "structure_formats": [
+    "mmcif"
+  ],
+  "timing": {
+    "total_time_seconds": 12.405554460943677,
+    "input_preparation_time_seconds": 0.07423001294955611,
+    "model_inference_time_seconds": 12.327755416044965,
+    "postprocessing_time_seconds": 0.0014011069433763623,
+    "dataloader_setup_time_seconds": 0.0003743050619959831,
+    "total_time_minutes": 0.20675924101572793
+  },
+  "ptm_scores": [
+    0.9338159561157227
+  ],
+  "iptm_scores": [
+    0.0
+  ],
+  "complex_plddt_scores": [
+    0.9438678026199341
+  ],
+  "complex_iplddt_scores": [
+    0.9438678026199341
+  ],
+  "complex_pde_scores": [
+    0.37052398920059204
+  ]
+}

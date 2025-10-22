@@ -1,0 +1,28 @@
+Benchmark completed at: Fri Oct 17 07:19:38 PM EDT 2025
+
+RESULTS:
+--------
+Total runs: 10
+Successful runs: 10
+Failed runs: 0
+Success rate: 100.00%
+
+EXECUTION TIME STATISTICS (successful runs only):
+------------------------------------------------
+Average time: 126.14 seconds (2.10 minutes)
+Minimum time: 121.65 seconds (2.03 minutes)
+Maximum time: 132.69 seconds (2.21 minutes)
+Total time (successful): 1261.43 seconds (21.02 minutes)
+
+DETAILED RESULTS:
+----------------
+Run  1: SUCCESS (Exit:   0, Time:   126.64s)
+Run  2: SUCCESS (Exit:   0, Time:   128.11s)
+Run  3: SUCCESS (Exit:   0, Time:   129.01s)
+Run  4: SUCCESS (Exit:   0, Time:   122.63s)
+Run  5: SUCCESS (Exit:   0, Time:   123.34s)
+Run  6: SUCCESS (Exit:   0, Time:   123.27s)
+Run  7: SUCCESS (Exit:   0, Time:   132.69s)
+Run  8: SUCCESS (Exit:   0, Time:   123.57s)
+Run  9: SUCCESS (Exit:   0, Time:   130.53s)
+Run 10: SUCCESS (Exit:   0, Time:   121.65s)

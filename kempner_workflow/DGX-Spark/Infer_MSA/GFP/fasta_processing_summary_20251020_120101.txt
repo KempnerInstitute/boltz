@@ -1,0 +1,42 @@
+FASTA Processing Summary
+================================================================================
+Input file: gfp_seq_50648.fasta
+Processing timestamp: 2025-10-20 12:01:01
+
+FASTA Summary:
+================================================================================
+Chain 1: C1 (50648|protein|)
+  Sequence length: 238 amino acids
+
+Total sequences: 1
+Total sequence length: 238 amino acids
+Average sequence length: 238.0 amino acids
+================================================================================
+
+Processing Results for Chain C1:
+  Description: 50648|protein|
+  Sequence length: 238 amino acids
+  Confidence score: 0.942
+  Compute time: 12.41 seconds
+  Files generated: 4
+    - boltz2_C1_prediction_structure_1_20251020_120113_0.942.cif
+    - boltz2_C1_prediction_metrics_20251020_120113.json
+    - boltz2_C1_prediction_metadata_20251020_120113.json
+    - boltz2_C1_prediction_summary_20251020_120113.txt
+
+OVERALL SUMMARY:
+================================================================================
+Total sequences processed: 1
+Total sequence length: 238 amino acids
+Average sequence length: 238.0 amino acids
+Total files generated: 4
+File types per sequence: .cif, .json (metrics), .json (metadata), .txt (summary)
+================================================================================
+
+All Generated Files:
+  - boltz2_C1_prediction_structure_1_20251020_120113_0.942.cif
+  - boltz2_C1_prediction_metrics_20251020_120113.json
+  - boltz2_C1_prediction_metadata_20251020_120113.json
+  - boltz2_C1_prediction_summary_20251020_120113.txt
+
+Processing completed at: 2025-10-20 12:01:13

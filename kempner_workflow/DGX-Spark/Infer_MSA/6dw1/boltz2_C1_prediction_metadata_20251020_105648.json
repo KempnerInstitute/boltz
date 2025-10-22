@@ -1,0 +1,47 @@
+{
+  "timestamp": "20251020_105648",
+  "request_parameters": {
+    "recycling_steps": 3,
+    "sampling_steps": 50,
+    "diffusion_samples": 1,
+    "step_scale": 1.638,
+    "output_format": "mmcif"
+  },
+  "file_info": {
+    "structure_files": [
+      "boltz2_C1_prediction_structure_1_20251020_105648_0.707.cif"
+    ],
+    "metrics_file": "boltz2_C1_prediction_metrics_20251020_105648.json"
+  },
+  "additional_info": {
+    "metrics": {
+      "total_time_seconds": 426.5997137509985,
+      "input_preparation_time_seconds": 0.6574124810285866,
+      "dataloader_setup_time_seconds": 0.0001977600622922182,
+      "model_inference_time_seconds": 425.9365552229574,
+      "postprocessing_time_seconds": 0.00392031401861459,
+      "affinity_prediction_time_seconds": 0.0,
+      "response_construction_time_seconds": 0.0
+    },
+    "affinities": {},
+    "ligand_iptm_scores": [
+      0.0
+    ],
+    "protein_iptm_scores": [
+      0.0
+    ],
+    "complex_ipde_scores": [
+      0.0
+    ],
+    "chains_ptm_scores": [
+      0.5737904906272888
+    ],
+    "pair_chains_iptm_scores": [
+      {
+        "0": {
+          "0": 0.5737904906272888
+        }
+      }
+    ]
+  }
+}

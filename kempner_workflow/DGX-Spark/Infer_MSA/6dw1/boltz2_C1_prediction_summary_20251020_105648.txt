@@ -1,0 +1,15 @@
+Boltz2 Prediction Summary
+========================
+Timestamp: 20251020_105648
+Number of structures: 1
+Confidence scores: [0.7074881792068481]
+Average confidence: 0.707
+Total compute time: 426.60 seconds (7.11 minutes)
+Model inference time: 425.94 seconds
+
+Files saved:
+Structure files:
+  - boltz2_C1_prediction_structure_1_20251020_105648_0.707.cif
+
+Metrics file: boltz2_C1_prediction_metrics_20251020_105648.json
+Metadata file: boltz2_C1_prediction_metadata_20251020_105648.json
