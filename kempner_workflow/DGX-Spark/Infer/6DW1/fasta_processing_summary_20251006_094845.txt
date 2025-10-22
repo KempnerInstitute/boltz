@@ -1,0 +1,42 @@
+FASTA Processing Summary
+================================================================================
+Input file: ./6dw1.fasta
+Processing timestamp: 2025-10-06 09:48:45
+
+FASTA Summary:
+================================================================================
+Chain 1: C1 (6DW1_1|Chain ALL Gamma-aminobutyric acid receptor all-unit gamma-2|Rattus norvegicus (10116))
+  Sequence length: 1276 amino acids
+
+Total sequences: 1
+Total sequence length: 1276 amino acids
+Average sequence length: 1276.0 amino acids
+================================================================================
+
+Processing Results for Chain C1:
+  Description: 6DW1_1|Chain ALL Gamma-aminobutyric acid receptor all-unit gamma-2|Rattus norvegicus (10116)
+  Sequence length: 1276 amino acids
+  Confidence score: 0.721
+  Compute time: 460.59 seconds
+  Files generated: 4
+    - boltz2_C1_prediction_structure_1_20251006_095625_0.721.cif
+    - boltz2_C1_prediction_metrics_20251006_095625.json
+    - boltz2_C1_prediction_metadata_20251006_095625.json
+    - boltz2_C1_prediction_summary_20251006_095625.txt
+
+OVERALL SUMMARY:
+================================================================================
+Total sequences processed: 1
+Total sequence length: 1276 amino acids
+Average sequence length: 1276.0 amino acids
+Total files generated: 4
+File types per sequence: .cif, .json (metrics), .json (metadata), .txt (summary)
+================================================================================
+
+All Generated Files:
+  - boltz2_C1_prediction_structure_1_20251006_095625_0.721.cif
+  - boltz2_C1_prediction_metrics_20251006_095625.json
+  - boltz2_C1_prediction_metadata_20251006_095625.json
+  - boltz2_C1_prediction_summary_20251006_095625.txt
+
+Processing completed at: 2025-10-06 09:56:25
