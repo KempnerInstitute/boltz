@@ -1,6 +1,6 @@
 
 
-# ColabSearch Benchmark Files
+# MSA Benchmark
 
 ## Files
 
