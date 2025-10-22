@@ -1,0 +1,41 @@
+INFO:colabfold.mmseqs.search:Running mmseqs createdb Output_colabfold/local_search_gpu/query.fas Output_colabfold/local_search_gpu/qdb --shuffle 0
+INFO:colabfold.mmseqs.search:Search does not use index
+INFO:colabfold.mmseqs.search:Search does not use index
+INFO:colabfold.mmseqs.search:Running mmseqs search Output_colabfold/local_search_gpu/qdb /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/uniref30_2302_db Output_colabfold/local_search_gpu/res Output_colabfold/local_search_gpu/tmp --threads 16 --num-iterations 3 --db-load-mode 0 -a -e 0.1 --max-seqs 10000 --gpu 1 --prefilter-mode 1
+INFO:colabfold.mmseqs.search:Running mmseqs mvdb Output_colabfold/local_search_gpu/tmp/latest/profile_1 Output_colabfold/local_search_gpu/prof_res
+INFO:colabfold.mmseqs.search:Running mmseqs lndb Output_colabfold/local_search_gpu/qdb_h Output_colabfold/local_search_gpu/prof_res_h
+INFO:colabfold.mmseqs.search:Running mmseqs expandaln Output_colabfold/local_search_gpu/qdb /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/uniref30_2302_db_seq Output_colabfold/local_search_gpu/res /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/uniref30_2302_db_aln Output_colabfold/local_search_gpu/res_exp --db-load-mode 0 --threads 16 --expansion-mode 0 -e inf --expand-filter-clusters 1 --max-seq-id 0.95
+INFO:colabfold.mmseqs.search:Running mmseqs align Output_colabfold/local_search_gpu/prof_res /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/uniref30_2302_db_seq Output_colabfold/local_search_gpu/res_exp Output_colabfold/local_search_gpu/res_exp_realign --db-load-mode 0 -e 10 --max-accept 100000 --threads 16 --alt-ali 10 -a
+INFO:colabfold.mmseqs.search:Running mmseqs filterresult Output_colabfold/local_search_gpu/qdb /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/uniref30_2302_db_seq Output_colabfold/local_search_gpu/res_exp_realign Output_colabfold/local_search_gpu/res_exp_realign_filter --db-load-mode 0 --qid 0 --qsc 0.8 --diff 0 --threads 16 --max-seq-id 1.0 --filter-min-enable 100
+INFO:colabfold.mmseqs.search:Running mmseqs result2msa Output_colabfold/local_search_gpu/qdb /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/uniref30_2302_db_seq Output_colabfold/local_search_gpu/res_exp_realign_filter Output_colabfold/local_search_gpu/uniref.a3m --msa-format-mode 6 --db-load-mode 0 --threads 16 --filter-msa 1 --filter-min-enable 1000 --diff 3000 --qid 0.0,0.2,0.4,0.6,0.8,1.0 --qsc 0 --max-seq-id 0.95
+INFO:colabfold.mmseqs.search:Running mmseqs rmdb Output_colabfold/local_search_gpu/res_exp_realign_filter
+INFO:colabfold.mmseqs.search:Running mmseqs rmdb Output_colabfold/local_search_gpu/res_exp_realign
+INFO:colabfold.mmseqs.search:Running mmseqs rmdb Output_colabfold/local_search_gpu/res_exp
+INFO:colabfold.mmseqs.search:Running mmseqs rmdb Output_colabfold/local_search_gpu/res
+INFO:colabfold.mmseqs.search:Running mmseqs search Output_colabfold/local_search_gpu/prof_res /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/colabfold_envdb_202108_db Output_colabfold/local_search_gpu/res_env Output_colabfold/local_search_gpu/tmp3 --threads 16 --num-iterations 3 --db-load-mode 0 -a -e 0.1 --max-seqs 10000 --gpu 1 --prefilter-mode 1
+INFO:colabfold.mmseqs.search:Running mmseqs expandaln Output_colabfold/local_search_gpu/prof_res /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/colabfold_envdb_202108_db_seq Output_colabfold/local_search_gpu/res_env /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/colabfold_envdb_202108_db_aln Output_colabfold/local_search_gpu/res_env_exp -e inf --expansion-mode 0 --db-load-mode 0 --threads 16
+INFO:colabfold.mmseqs.search:Running mmseqs align Output_colabfold/local_search_gpu/tmp3/latest/profile_1 /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/colabfold_envdb_202108_db_seq Output_colabfold/local_search_gpu/res_env_exp Output_colabfold/local_search_gpu/res_env_exp_realign --db-load-mode 0 -e 10 --max-accept 100000 --threads 16 --alt-ali 10 -a
+INFO:colabfold.mmseqs.search:Running mmseqs filterresult Output_colabfold/local_search_gpu/qdb /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/colabfold_envdb_202108_db_seq Output_colabfold/local_search_gpu/res_env_exp_realign Output_colabfold/local_search_gpu/res_env_exp_realign_filter --db-load-mode 0 --qid 0 --qsc 0.8 --diff 0 --max-seq-id 1.0 --threads 16 --filter-min-enable 100
+INFO:colabfold.mmseqs.search:Running mmseqs result2msa Output_colabfold/local_search_gpu/qdb /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/colabfold_envdb_202108_db_seq Output_colabfold/local_search_gpu/res_env_exp_realign_filter Output_colabfold/local_search_gpu/bfd.mgnify30.metaeuk30.smag30.a3m --msa-format-mode 6 --db-load-mode 0 --threads 16 --filter-msa 1 --filter-min-enable 1000 --diff 3000 --qid 0.0,0.2,0.4,0.6,0.8,1.0 --qsc 0 --max-seq-id 0.95
+INFO:colabfold.mmseqs.search:Running mmseqs rmdb Output_colabfold/local_search_gpu/res_env_exp_realign_filter
+INFO:colabfold.mmseqs.search:Running mmseqs rmdb Output_colabfold/local_search_gpu/res_env_exp_realign
+INFO:colabfold.mmseqs.search:Running mmseqs rmdb Output_colabfold/local_search_gpu/res_env_exp
+INFO:colabfold.mmseqs.search:Running mmseqs rmdb Output_colabfold/local_search_gpu/res_env
+INFO:colabfold.mmseqs.search:Running mmseqs mergedbs Output_colabfold/local_search_gpu/qdb Output_colabfold/local_search_gpu/final.a3m Output_colabfold/local_search_gpu/uniref.a3m Output_colabfold/local_search_gpu/bfd.mgnify30.metaeuk30.smag30.a3m
+INFO:colabfold.mmseqs.search:Running mmseqs rmdb Output_colabfold/local_search_gpu/bfd.mgnify30.metaeuk30.smag30.a3m
+INFO:colabfold.mmseqs.search:Running mmseqs rmdb Output_colabfold/local_search_gpu/uniref.a3m
+INFO:colabfold.mmseqs.search:Running mmseqs unpackdb Output_colabfold/local_search_gpu/final.a3m Output_colabfold/local_search_gpu --unpack-name-mode 0 --unpack-suffix .a3m
+INFO:colabfold.mmseqs.search:Running mmseqs rmdb Output_colabfold/local_search_gpu/final.a3m
+INFO:colabfold.mmseqs.search:Running mmseqs rmdb Output_colabfold/local_search_gpu/prof_res
+INFO:colabfold.mmseqs.search:Running mmseqs rmdb Output_colabfold/local_search_gpu/prof_res_h
+INFO:colabfold.mmseqs.search:Running mmseqs rmdb Output_colabfold/local_search_gpu/qdb
+INFO:colabfold.mmseqs.search:Running mmseqs rmdb Output_colabfold/local_search_gpu/qdb_h
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:02<00:00,  2.51s/it]100%|██████████| 1/1 [00:02<00:00,  2.51s/it]
+Using bfloat16 Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+/n/holylfs06/LABS/kempner_shared/Everyone/common_envs/miniconda3/envs/boltz/lib/python3.12/site-packages/pytorch_lightning/utilities/migration/utils.py:56: The loaded checkpoint was produced with Lightning v2.5.0.post0, which is newer than your current Lightning version: v2.5.0
+You are using a CUDA device ('NVIDIA H100 80GB HBM3') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+SLURM auto-requeueing enabled. Setting signal handlers.

@@ -1,0 +1,413 @@
+===============================================
+BOLTZ PIPELINE STARTED
+===============================================
+Input FASTA: 6dw1_comb.fasta
+ColabFold Output: Output_colabfold/local_search_gpu
+Boltz Output: Output_boltz/prot_pipeline_gpu
+===============================================
+Loading modules...
+
+STEP 1: Running ColabFold search...
+----------------------------------------
+Command: colabfold_search 6dw1_comb.fasta /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db Output_colabfold/local_search_gpu --thread 16 --gpu 1
+createdb Output_colabfold/local_search_gpu/query.fas Output_colabfold/local_search_gpu/qdb --shuffle 0 
+
+Converting sequences
+[
+Time for merging to qdb_h: 0h 0m 0s 4ms
+Time for merging to qdb: 0h 0m 0s 4ms
+Database type: Aminoacid
+Time for processing: 0h 0m 0s 43ms
+Create directory Output_colabfold/local_search_gpu/tmp
+search Output_colabfold/local_search_gpu/qdb /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/uniref30_2302_db Output_colabfold/local_search_gpu/res Output_colabfold/local_search_gpu/tmp --threads 16 --num-iterations 3 --db-load-mode 0 -a -e 0.1 --max-seqs 10000 --gpu 1 --prefilter-mode 1 
+
+ungappedprefilter Output_colabfold/local_search_gpu/qdb /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/uniref30_2302_db Output_colabfold/local_search_gpu/tmp/7736642627108613512/pref_0 --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -c 0 -e 0.1 --cov-mode 0 --comp-bias-corr 1 --comp-bias-corr-scale 1 --min-ungapped-score 15 --max-seqs 10000 --db-load-mode 0 --gpu 1 --gpu-server 0 --gpu-server-wait-timeout 600 --prefilter-mode 1 --threads 16 --compressed 0 -v 3 
+
+[=================================================================] 1 4s 229ms
+Time for merging to pref_0: 0h 0m 0s 9ms
+Time for processing: 0h 0m 22s 602ms
+align Output_colabfold/local_search_gpu/qdb /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/uniref30_2302_db Output_colabfold/local_search_gpu/tmp/7736642627108613512/pref_0 Output_colabfold/local_search_gpu/tmp/7736642627108613512/aln_0 --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -a 1 --alignment-mode 2 --alignment-output-mode 0 --wrapped-scoring 0 -e 0.1 --min-seq-id 0 --min-aln-len 0 --seq-id-mode 0 --alt-ali 0 -c 0 --cov-mode 0 --max-seq-len 65535 --comp-bias-corr 1 --comp-bias-corr-scale 1 --max-rejected 2147483647 --max-accept 2147483647 --add-self-matches 0 --db-load-mode 0 --pca substitution:1.100,context:1.400 --pcb substitution:4.100,context:5.800 --score-bias 0 --realign 1 --realign-score-bias -0.2 --realign-max-seqs 2147483647 --corr-score-weight 0 --gap-open aa:11,nucl:5 --gap-extend aa:1,nucl:2 --zdrop 40 --threads 16 --compressed 0 -v 3 
+
+Compute score only
+Query database size: 1 type: Aminoacid
+Target database size: 36293491 type: Aminoacid
+Calculation of alignments
+[=================================================================] 1 0s 1ms
+Time for merging to aln_0: 0h 0m 0s 6ms
+10000 alignments calculated
+6556 sequence pairs passed the thresholds (0.655600 of overall calculated)
+6556.000000 hits per query sequence
+Time for processing: 0h 0m 5s 827ms
+result2profile Output_colabfold/local_search_gpu/qdb /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/uniref30_2302_db Output_colabfold/local_search_gpu/tmp/7736642627108613512/aln_0 Output_colabfold/local_search_gpu/tmp/7736642627108613512/profile_0 --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -e 0.1 --mask-profile 1 --e-profile 0.1 --comp-bias-corr 1 --comp-bias-corr-scale 1 --wg 0 --allow-deletion 0 --filter-msa 1 --filter-min-enable 0 --max-seq-id 0.9 --qid '0.0' --qsc -20 --cov 0 --diff 1000 --pseudo-cnt-mode 0 --pca substitution:1.100,context:1.400 --pcb substitution:4.100,context:5.800 --db-load-mode 0 --gap-open aa:11,nucl:5 --gap-extend aa:1,nucl:2 --threads 16 --compressed 0 -v 3 --profile-output-mode 0 
+
+Query database size: 1 type: Aminoacid
+Target database size: 36293491 type: Aminoacid
+[=================================================================] 1 0s 2ms
+Time for merging to profile_0: 0h 0m 0s 7ms
+Time for processing: 0h 0m 4s 105ms
+ungappedprefilter Output_colabfold/local_search_gpu/tmp/7736642627108613512/profile_0 /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/uniref30_2302_db Output_colabfold/local_search_gpu/tmp/7736642627108613512/pref_tmp_1 --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -c 0 -e 0.1 --cov-mode 0 --comp-bias-corr 1 --comp-bias-corr-scale 1 --min-ungapped-score 15 --max-seqs 10000 --db-load-mode 0 --gpu 1 --gpu-server 0 --gpu-server-wait-timeout 600 --prefilter-mode 1 --threads 16 --compressed 0 -v 3 
+
+[=================================================================] 1 2s 951ms
+Time for merging to pref_tmp_1: 0h 0m 0s 7ms
+Time for processing: 0h 0m 7s 135ms
+subtractdbs Output_colabfold/local_search_gpu/tmp/7736642627108613512/pref_tmp_1 Output_colabfold/local_search_gpu/tmp/7736642627108613512/aln_0 Output_colabfold/local_search_gpu/tmp/7736642627108613512/pref_1 --threads 16 --e-profile 0.1 -e 0.1 --compressed 0 -v 3 
+
+[=================================================================] 1 0s 0ms
+Time for merging to pref_1: 0h 0m 0s 7ms
+Time for processing: 0h 0m 0s 30ms
+rmdb Output_colabfold/local_search_gpu/tmp/7736642627108613512/pref_tmp_1 
+
+Time for processing: 0h 0m 0s 5ms
+align Output_colabfold/local_search_gpu/tmp/7736642627108613512/profile_0 /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/uniref30_2302_db Output_colabfold/local_search_gpu/tmp/7736642627108613512/pref_1 Output_colabfold/local_search_gpu/tmp/7736642627108613512/aln_tmp_1 --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -a 1 --alignment-mode 2 --alignment-output-mode 0 --wrapped-scoring 0 -e 0.1 --min-seq-id 0 --min-aln-len 0 --seq-id-mode 0 --alt-ali 0 -c 0 --cov-mode 0 --max-seq-len 65535 --comp-bias-corr 1 --comp-bias-corr-scale 1 --max-rejected 2147483647 --max-accept 2147483647 --add-self-matches 0 --db-load-mode 0 --pca substitution:1.100,context:1.400 --pcb substitution:4.100,context:5.800 --score-bias 0 --realign 0 --realign-score-bias -0.2 --realign-max-seqs 2147483647 --corr-score-weight 0 --gap-open aa:11,nucl:5 --gap-extend aa:1,nucl:2 --zdrop 40 --threads 16 --compressed 0 -v 3 
+
+Compute score, coverage and sequence identity
+Query database size: 1 type: Profile
+Target database size: 36293491 type: Aminoacid
+Calculation of alignments
+[=================================================================] 1 0s 3ms
+Time for merging to aln_tmp_1: 0h 0m 0s 7ms
+3480 alignments calculated
+3016 sequence pairs passed the thresholds (0.866667 of overall calculated)
+3016.000000 hits per query sequence
+Time for processing: 0h 0m 4s 695ms
+mergedbs Output_colabfold/local_search_gpu/tmp/7736642627108613512/profile_0 Output_colabfold/local_search_gpu/tmp/7736642627108613512/aln_1 Output_colabfold/local_search_gpu/tmp/7736642627108613512/aln_0 Output_colabfold/local_search_gpu/tmp/7736642627108613512/aln_tmp_1 
+
+Merging the results to Output_colabfold/local_search_gpu/tmp/7736642627108613512/aln_1
+[=================================================================] 1 0s 0ms
+Time for merging to aln_1: 0h 0m 0s 7ms
+Time for processing: 0h 0m 0s 32ms
+rmdb Output_colabfold/local_search_gpu/tmp/7736642627108613512/aln_0 
+
+Time for processing: 0h 0m 0s 5ms
+rmdb Output_colabfold/local_search_gpu/tmp/7736642627108613512/aln_tmp_1 
+
+Time for processing: 0h 0m 0s 4ms
+result2profile Output_colabfold/local_search_gpu/tmp/7736642627108613512/profile_0 /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/uniref30_2302_db Output_colabfold/local_search_gpu/tmp/7736642627108613512/aln_1 Output_colabfold/local_search_gpu/tmp/7736642627108613512/profile_1 --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -e 0.1 --mask-profile 1 --e-profile 0.1 --comp-bias-corr 1 --comp-bias-corr-scale 1 --wg 0 --allow-deletion 0 --filter-msa 1 --filter-min-enable 0 --max-seq-id 0.9 --qid '0.0' --qsc -20 --cov 0 --diff 1000 --pseudo-cnt-mode 0 --pca substitution:1.100,context:1.400 --pcb substitution:4.100,context:5.800 --db-load-mode 0 --gap-open aa:11,nucl:5 --gap-extend aa:1,nucl:2 --threads 16 --compressed 0 -v 3 --profile-output-mode 0 
+
+Query database size: 1 type: Profile
+Target database size: 36293491 type: Aminoacid
+[=================================================================] 1 0s 4ms
+Time for merging to profile_1: 0h 0m 0s 6ms
+Time for processing: 0h 0m 5s 260ms
+ungappedprefilter Output_colabfold/local_search_gpu/tmp/7736642627108613512/profile_1 /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/uniref30_2302_db Output_colabfold/local_search_gpu/tmp/7736642627108613512/pref_tmp_2 --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -c 0 -e 0.1 --cov-mode 0 --comp-bias-corr 1 --comp-bias-corr-scale 1 --min-ungapped-score 15 --max-seqs 10000 --db-load-mode 0 --gpu 1 --gpu-server 0 --gpu-server-wait-timeout 600 --prefilter-mode 1 --threads 16 --compressed 0 -v 3 
+
+[=================================================================] 1 2s 794ms
+Time for merging to pref_tmp_2: 0h 0m 0s 7ms
+Time for processing: 0h 0m 6s 625ms
+subtractdbs Output_colabfold/local_search_gpu/tmp/7736642627108613512/pref_tmp_2 Output_colabfold/local_search_gpu/tmp/7736642627108613512/aln_1 Output_colabfold/local_search_gpu/tmp/7736642627108613512/pref_2 --threads 16 --e-profile 0.1 -e 0.1 --compressed 0 -v 3 
+
+[=================================================================] 1 0s 0ms
+Time for merging to pref_2: 0h 0m 0s 7ms
+Time for processing: 0h 0m 0s 38ms
+rmdb Output_colabfold/local_search_gpu/tmp/7736642627108613512/pref_tmp_2 
+
+Time for processing: 0h 0m 0s 4ms
+align Output_colabfold/local_search_gpu/tmp/7736642627108613512/profile_1 /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/uniref30_2302_db Output_colabfold/local_search_gpu/tmp/7736642627108613512/pref_2 Output_colabfold/local_search_gpu/tmp/7736642627108613512/aln_tmp_2 --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -a 1 --alignment-mode 2 --alignment-output-mode 0 --wrapped-scoring 0 -e 0.1 --min-seq-id 0 --min-aln-len 0 --seq-id-mode 0 --alt-ali 0 -c 0 --cov-mode 0 --max-seq-len 65535 --comp-bias-corr 1 --comp-bias-corr-scale 1 --max-rejected 2147483647 --max-accept 2147483647 --add-self-matches 0 --db-load-mode 0 --pca substitution:1.100,context:1.400 --pcb substitution:4.100,context:5.800 --score-bias 0 --realign 0 --realign-score-bias -0.2 --realign-max-seqs 2147483647 --corr-score-weight 0 --gap-open aa:11,nucl:5 --gap-extend aa:1,nucl:2 --zdrop 40 --threads 16 --compressed 0 -v 3 
+
+Compute score, coverage and sequence identity
+Query database size: 1 type: Profile
+Target database size: 36293491 type: Aminoacid
+Calculation of alignments
+[=================================================================] 1 0s 3ms
+Time for merging to aln_tmp_2: 0h 0m 0s 7ms
+587 alignments calculated
+270 sequence pairs passed the thresholds (0.459966 of overall calculated)
+270.000000 hits per query sequence
+Time for processing: 0h 0m 3s 465ms
+mergedbs Output_colabfold/local_search_gpu/tmp/7736642627108613512/profile_1 Output_colabfold/local_search_gpu/res Output_colabfold/local_search_gpu/tmp/7736642627108613512/aln_1 Output_colabfold/local_search_gpu/tmp/7736642627108613512/aln_tmp_2 
+
+Merging the results to Output_colabfold/local_search_gpu/res
+[=================================================================] 1 0s 0ms
+Time for merging to res: 0h 0m 0s 8ms
+Time for processing: 0h 0m 0s 23ms
+rmdb Output_colabfold/local_search_gpu/tmp/7736642627108613512/aln_1 
+
+Time for processing: 0h 0m 0s 4ms
+rmdb Output_colabfold/local_search_gpu/tmp/7736642627108613512/aln_tmp_2 
+
+Time for processing: 0h 0m 0s 4ms
+mvdb Output_colabfold/local_search_gpu/tmp/latest/profile_1 Output_colabfold/local_search_gpu/prof_res 
+
+Time for processing: 0h 0m 0s 11ms
+lndb Output_colabfold/local_search_gpu/qdb_h Output_colabfold/local_search_gpu/prof_res_h 
+
+Time for processing: 0h 0m 0s 8ms
+expandaln Output_colabfold/local_search_gpu/qdb /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/uniref30_2302_db_seq Output_colabfold/local_search_gpu/res /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/uniref30_2302_db_aln Output_colabfold/local_search_gpu/res_exp --db-load-mode 0 --threads 16 --expansion-mode 0 -e inf --expand-filter-clusters 1 --max-seq-id 0.95 
+
+[=================================================================] 1 0s 0ms
+Time for merging to res_exp: 0h 0m 0s 7ms
+Time for processing: 0h 5m 31s 351ms
+align Output_colabfold/local_search_gpu/prof_res /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/uniref30_2302_db_seq Output_colabfold/local_search_gpu/res_exp Output_colabfold/local_search_gpu/res_exp_realign --db-load-mode 0 -e 10 --max-accept 100000 --threads 16 --alt-ali 10 -a 
+
+Compute score, coverage and sequence identity
+Query database size: 1 type: Profile
+Target database size: 350950053 type: Aminoacid
+Calculation of alignments
+[=================================================================] 1 0s 3ms
+Time for merging to res_exp_realign: 0h 0m 0s 7ms
+41762 alignments calculated
+41526 sequence pairs passed the thresholds (0.994349 of overall calculated)
+41526.000000 hits per query sequence
+Time for processing: 0h 1m 8s 80ms
+filterresult Output_colabfold/local_search_gpu/qdb /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/uniref30_2302_db_seq Output_colabfold/local_search_gpu/res_exp_realign Output_colabfold/local_search_gpu/res_exp_realign_filter --db-load-mode 0 --qid 0 --qsc 0.8 --diff 0 --threads 16 --max-seq-id 1.0 --filter-min-enable 100 
+
+Query database size: 1 type: Aminoacid
+Target database size: 350950053 type: Aminoacid
+[=================================================================] 1 0s 2ms
+Time for merging to res_exp_realign_filter: 0h 0m 0s 8ms
+Time for processing: 0h 0m 56s 290ms
+result2msa Output_colabfold/local_search_gpu/qdb /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/uniref30_2302_db_seq Output_colabfold/local_search_gpu/res_exp_realign_filter Output_colabfold/local_search_gpu/uniref.a3m --msa-format-mode 6 --db-load-mode 0 --threads 16 --filter-msa 1 --filter-min-enable 1000 --diff 3000 --qid 0.0,0.2,0.4,0.6,0.8,1.0 --qsc 0 --max-seq-id 0.95 
+
+Query database size: 1 type: Aminoacid
+Target database size: 350950053 type: Aminoacid
+[=================================================================] 1 0s 3ms
+Time for merging to uniref.a3m: 0h 0m 0s 8ms
+Time for processing: 0h 1m 27s 498ms
+rmdb Output_colabfold/local_search_gpu/res_exp_realign_filter 
+
+Time for processing: 0h 0m 0s 7ms
+rmdb Output_colabfold/local_search_gpu/res_exp_realign 
+
+Time for processing: 0h 0m 0s 8ms
+rmdb Output_colabfold/local_search_gpu/res_exp 
+
+Time for processing: 0h 0m 0s 6ms
+rmdb Output_colabfold/local_search_gpu/res 
+
+Time for processing: 0h 0m 0s 8ms
+Create directory Output_colabfold/local_search_gpu/tmp3
+search Output_colabfold/local_search_gpu/prof_res /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/colabfold_envdb_202108_db Output_colabfold/local_search_gpu/res_env Output_colabfold/local_search_gpu/tmp3 --threads 16 --num-iterations 3 --db-load-mode 0 -a -e 0.1 --max-seqs 10000 --gpu 1 --prefilter-mode 1 
+
+ungappedprefilter Output_colabfold/local_search_gpu/prof_res /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/colabfold_envdb_202108_db Output_colabfold/local_search_gpu/tmp3/4243873491633211495/pref_0 --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -c 0 -e 0.1 --cov-mode 0 --comp-bias-corr 1 --comp-bias-corr-scale 1 --min-ungapped-score 15 --max-seqs 10000 --db-load-mode 0 --gpu 1 --gpu-server 0 --gpu-server-wait-timeout 600 --prefilter-mode 1 --threads 16 --compressed 0 -v 3 
+
+[=================================================================] 1 10s 274ms
+Time for merging to pref_0: 0h 0m 0s 10ms
+Time for processing: 0h 0m 40s 376ms
+align Output_colabfold/local_search_gpu/prof_res /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/colabfold_envdb_202108_db Output_colabfold/local_search_gpu/tmp3/4243873491633211495/pref_0 Output_colabfold/local_search_gpu/tmp3/4243873491633211495/aln_0 --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -a 1 --alignment-mode 2 --alignment-output-mode 0 --wrapped-scoring 0 -e 0.1 --min-seq-id 0 --min-aln-len 0 --seq-id-mode 0 --alt-ali 0 -c 0 --cov-mode 0 --max-seq-len 65535 --comp-bias-corr 1 --comp-bias-corr-scale 1 --max-rejected 2147483647 --max-accept 2147483647 --add-self-matches 0 --db-load-mode 0 --pca substitution:1.100,context:1.400 --pcb substitution:4.100,context:5.800 --score-bias 0 --realign 1 --realign-score-bias -0.2 --realign-max-seqs 2147483647 --corr-score-weight 0 --gap-open aa:11,nucl:5 --gap-extend aa:1,nucl:2 --zdrop 40 --threads 16 --compressed 0 -v 3 
+
+Compute score only
+Query database size: 1 type: Profile
+Target database size: 209335862 type: Aminoacid
+Calculation of alignments
+[=================================================================] 1 0s 3ms
+Time for merging to aln_0: 0h 0m 0s 18ms
+10000 alignments calculated
+7653 sequence pairs passed the thresholds (0.765300 of overall calculated)
+7653.000000 hits per query sequence
+Time for processing: 0h 0m 21s 731ms
+result2profile Output_colabfold/local_search_gpu/prof_res /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/colabfold_envdb_202108_db Output_colabfold/local_search_gpu/tmp3/4243873491633211495/aln_0 Output_colabfold/local_search_gpu/tmp3/4243873491633211495/profile_0 --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -e 0.1 --mask-profile 1 --e-profile 0.1 --comp-bias-corr 1 --comp-bias-corr-scale 1 --wg 0 --allow-deletion 0 --filter-msa 1 --filter-min-enable 0 --max-seq-id 0.9 --qid '0.0' --qsc -20 --cov 0 --diff 1000 --pseudo-cnt-mode 0 --pca substitution:1.100,context:1.400 --pcb substitution:4.100,context:5.800 --db-load-mode 0 --gap-open aa:11,nucl:5 --gap-extend aa:1,nucl:2 --threads 16 --compressed 0 -v 3 --profile-output-mode 0 
+
+Query database size: 1 type: Profile
+Target database size: 209335862 type: Aminoacid
+[=================================================================] 1 0s 3ms
+Time for merging to profile_0: 0h 0m 0s 9ms
+Time for processing: 0h 0m 24s 36ms
+ungappedprefilter Output_colabfold/local_search_gpu/tmp3/4243873491633211495/profile_0 /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/colabfold_envdb_202108_db Output_colabfold/local_search_gpu/tmp3/4243873491633211495/pref_tmp_1 --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -c 0 -e 0.1 --cov-mode 0 --comp-bias-corr 1 --comp-bias-corr-scale 1 --min-ungapped-score 15 --max-seqs 10000 --db-load-mode 0 --gpu 1 --gpu-server 0 --gpu-server-wait-timeout 600 --prefilter-mode 1 --threads 16 --compressed 0 -v 3 
+
+[=================================================================] 1 8s 352ms
+Time for merging to pref_tmp_1: 0h 0m 0s 10ms
+Time for processing: 0h 0m 29s 916ms
+subtractdbs Output_colabfold/local_search_gpu/tmp3/4243873491633211495/pref_tmp_1 Output_colabfold/local_search_gpu/tmp3/4243873491633211495/aln_0 Output_colabfold/local_search_gpu/tmp3/4243873491633211495/pref_1 --threads 16 --e-profile 0.1 -e 0.1 --compressed 0 -v 3 
+
+[=================================================================] 1 0s 0ms
+Time for merging to pref_1: 0h 0m 0s 16ms
+Time for processing: 0h 0m 0s 54ms
+rmdb Output_colabfold/local_search_gpu/tmp3/4243873491633211495/pref_tmp_1 
+
+Time for processing: 0h 0m 0s 4ms
+align Output_colabfold/local_search_gpu/tmp3/4243873491633211495/profile_0 /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/colabfold_envdb_202108_db Output_colabfold/local_search_gpu/tmp3/4243873491633211495/pref_1 Output_colabfold/local_search_gpu/tmp3/4243873491633211495/aln_tmp_1 --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -a 1 --alignment-mode 2 --alignment-output-mode 0 --wrapped-scoring 0 -e 0.1 --min-seq-id 0 --min-aln-len 0 --seq-id-mode 0 --alt-ali 0 -c 0 --cov-mode 0 --max-seq-len 65535 --comp-bias-corr 1 --comp-bias-corr-scale 1 --max-rejected 2147483647 --max-accept 2147483647 --add-self-matches 0 --db-load-mode 0 --pca substitution:1.100,context:1.400 --pcb substitution:4.100,context:5.800 --score-bias 0 --realign 0 --realign-score-bias -0.2 --realign-max-seqs 2147483647 --corr-score-weight 0 --gap-open aa:11,nucl:5 --gap-extend aa:1,nucl:2 --zdrop 40 --threads 16 --compressed 0 -v 3 
+
+Compute score, coverage and sequence identity
+Query database size: 1 type: Profile
+Target database size: 209335862 type: Aminoacid
+Calculation of alignments
+[=================================================================] 1 0s 3ms
+Time for merging to aln_tmp_1: 0h 0m 0s 10ms
+2474 alignments calculated
+922 sequence pairs passed the thresholds (0.372676 of overall calculated)
+922.000000 hits per query sequence
+Time for processing: 0h 0m 19s 736ms
+mergedbs Output_colabfold/local_search_gpu/tmp3/4243873491633211495/profile_0 Output_colabfold/local_search_gpu/tmp3/4243873491633211495/aln_1 Output_colabfold/local_search_gpu/tmp3/4243873491633211495/aln_0 Output_colabfold/local_search_gpu/tmp3/4243873491633211495/aln_tmp_1 
+
+Merging the results to Output_colabfold/local_search_gpu/tmp3/4243873491633211495/aln_1
+[=================================================================] 1 0s 0ms
+Time for merging to aln_1: 0h 0m 0s 7ms
+Time for processing: 0h 0m 0s 46ms
+rmdb Output_colabfold/local_search_gpu/tmp3/4243873491633211495/aln_0 
+
+Time for processing: 0h 0m 0s 4ms
+rmdb Output_colabfold/local_search_gpu/tmp3/4243873491633211495/aln_tmp_1 
+
+Time for processing: 0h 0m 0s 9ms
+result2profile Output_colabfold/local_search_gpu/tmp3/4243873491633211495/profile_0 /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/colabfold_envdb_202108_db Output_colabfold/local_search_gpu/tmp3/4243873491633211495/aln_1 Output_colabfold/local_search_gpu/tmp3/4243873491633211495/profile_1 --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -e 0.1 --mask-profile 1 --e-profile 0.1 --comp-bias-corr 1 --comp-bias-corr-scale 1 --wg 0 --allow-deletion 0 --filter-msa 1 --filter-min-enable 0 --max-seq-id 0.9 --qid '0.0' --qsc -20 --cov 0 --diff 1000 --pseudo-cnt-mode 0 --pca substitution:1.100,context:1.400 --pcb substitution:4.100,context:5.800 --db-load-mode 0 --gap-open aa:11,nucl:5 --gap-extend aa:1,nucl:2 --threads 16 --compressed 0 -v 3 --profile-output-mode 0 
+
+Query database size: 1 type: Profile
+Target database size: 209335862 type: Aminoacid
+[=================================================================] 1 0s 3ms
+Time for merging to profile_1: 0h 0m 0s 8ms
+Time for processing: 0h 0m 19s 806ms
+ungappedprefilter Output_colabfold/local_search_gpu/tmp3/4243873491633211495/profile_1 /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/colabfold_envdb_202108_db Output_colabfold/local_search_gpu/tmp3/4243873491633211495/pref_tmp_2 --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -c 0 -e 0.1 --cov-mode 0 --comp-bias-corr 1 --comp-bias-corr-scale 1 --min-ungapped-score 15 --max-seqs 10000 --db-load-mode 0 --gpu 1 --gpu-server 0 --gpu-server-wait-timeout 600 --prefilter-mode 1 --threads 16 --compressed 0 -v 3 
+
+[=================================================================] 1 8s 156ms
+Time for merging to pref_tmp_2: 0h 0m 0s 10ms
+Time for processing: 0h 0m 29s 906ms
+subtractdbs Output_colabfold/local_search_gpu/tmp3/4243873491633211495/pref_tmp_2 Output_colabfold/local_search_gpu/tmp3/4243873491633211495/aln_1 Output_colabfold/local_search_gpu/tmp3/4243873491633211495/pref_2 --threads 16 --e-profile 0.1 -e 0.1 --compressed 0 -v 3 
+
+[=================================================================] 1 0s 0ms
+Time for merging to pref_2: 0h 0m 0s 7ms
+Time for processing: 0h 0m 0s 25ms
+rmdb Output_colabfold/local_search_gpu/tmp3/4243873491633211495/pref_tmp_2 
+
+Time for processing: 0h 0m 0s 4ms
+align Output_colabfold/local_search_gpu/tmp3/4243873491633211495/profile_1 /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/colabfold_envdb_202108_db Output_colabfold/local_search_gpu/tmp3/4243873491633211495/pref_2 Output_colabfold/local_search_gpu/tmp3/4243873491633211495/aln_tmp_2 --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -a 1 --alignment-mode 2 --alignment-output-mode 0 --wrapped-scoring 0 -e 0.1 --min-seq-id 0 --min-aln-len 0 --seq-id-mode 0 --alt-ali 0 -c 0 --cov-mode 0 --max-seq-len 65535 --comp-bias-corr 1 --comp-bias-corr-scale 1 --max-rejected 2147483647 --max-accept 2147483647 --add-self-matches 0 --db-load-mode 0 --pca substitution:1.100,context:1.400 --pcb substitution:4.100,context:5.800 --score-bias 0 --realign 0 --realign-score-bias -0.2 --realign-max-seqs 2147483647 --corr-score-weight 0 --gap-open aa:11,nucl:5 --gap-extend aa:1,nucl:2 --zdrop 40 --threads 16 --compressed 0 -v 3 
+
+Compute score, coverage and sequence identity
+Query database size: 1 type: Profile
+Target database size: 209335862 type: Aminoacid
+Calculation of alignments
+[=================================================================] 1 0s 3ms
+Time for merging to aln_tmp_2: 0h 0m 0s 7ms
+1595 alignments calculated
+94 sequence pairs passed the thresholds (0.058934 of overall calculated)
+94.000000 hits per query sequence
+Time for processing: 0h 0m 21s 702ms
+mergedbs Output_colabfold/local_search_gpu/tmp3/4243873491633211495/profile_1 Output_colabfold/local_search_gpu/res_env Output_colabfold/local_search_gpu/tmp3/4243873491633211495/aln_1 Output_colabfold/local_search_gpu/tmp3/4243873491633211495/aln_tmp_2 
+
+Merging the results to Output_colabfold/local_search_gpu/res_env
+[=================================================================] 1 0s 0ms
+Time for merging to res_env: 0h 0m 0s 7ms
+Time for processing: 0h 0m 0s 23ms
+rmdb Output_colabfold/local_search_gpu/tmp3/4243873491633211495/aln_1 
+
+Time for processing: 0h 0m 0s 5ms
+rmdb Output_colabfold/local_search_gpu/tmp3/4243873491633211495/aln_tmp_2 
+
+Time for processing: 0h 0m 0s 4ms
+expandaln Output_colabfold/local_search_gpu/prof_res /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/colabfold_envdb_202108_db_seq Output_colabfold/local_search_gpu/res_env /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/colabfold_envdb_202108_db_aln Output_colabfold/local_search_gpu/res_env_exp -e inf --expansion-mode 0 --db-load-mode 0 --threads 16 
+
+[=================================================================] 1 0s 2ms
+Time for merging to res_env_exp: 0h 0m 0s 8ms
+Time for processing: 0h 4m 49s 505ms
+align Output_colabfold/local_search_gpu/tmp3/latest/profile_1 /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/colabfold_envdb_202108_db_seq Output_colabfold/local_search_gpu/res_env_exp Output_colabfold/local_search_gpu/res_env_exp_realign --db-load-mode 0 -e 10 --max-accept 100000 --threads 16 --alt-ali 10 -a 
+
+Compute score, coverage and sequence identity
+Query database size: 1 type: Profile
+Target database size: 738695581 type: Aminoacid
+Calculation of alignments
+[=================================================================] 1 0s 4ms
+Time for merging to res_env_exp_realign: 0h 0m 0s 7ms
+54220 alignments calculated
+43112 sequence pairs passed the thresholds (0.795131 of overall calculated)
+43112.000000 hits per query sequence
+Time for processing: 0h 1m 6s 925ms
+filterresult Output_colabfold/local_search_gpu/qdb /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/colabfold_envdb_202108_db_seq Output_colabfold/local_search_gpu/res_env_exp_realign Output_colabfold/local_search_gpu/res_env_exp_realign_filter --db-load-mode 0 --qid 0 --qsc 0.8 --diff 0 --max-seq-id 1.0 --threads 16 --filter-min-enable 100 
+
+Query database size: 1 type: Aminoacid
+Target database size: 738695581 type: Aminoacid
+[=================================================================] 1 0s 1ms
+Time for merging to res_env_exp_realign_filter: 0h 0m 0s 7ms
+Time for processing: 0h 0m 53s 292ms
+result2msa Output_colabfold/local_search_gpu/qdb /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/mmseq2_db/colabfold_envdb_202108_db_seq Output_colabfold/local_search_gpu/res_env_exp_realign_filter Output_colabfold/local_search_gpu/bfd.mgnify30.metaeuk30.smag30.a3m --msa-format-mode 6 --db-load-mode 0 --threads 16 --filter-msa 1 --filter-min-enable 1000 --diff 3000 --qid 0.0,0.2,0.4,0.6,0.8,1.0 --qsc 0 --max-seq-id 0.95 
+
+Query database size: 1 type: Aminoacid
+Target database size: 738695581 type: Aminoacid
+[=================================================================] 1 0s 2ms
+Time for merging to bfd.mgnify30.metaeuk30.smag30.a3m: 0h 0m 0s 9ms
+Time for processing: 0h 1m 14s 397ms
+rmdb Output_colabfold/local_search_gpu/res_env_exp_realign_filter 
+
+Time for processing: 0h 0m 0s 6ms
+rmdb Output_colabfold/local_search_gpu/res_env_exp_realign 
+
+Time for processing: 0h 0m 0s 8ms
+rmdb Output_colabfold/local_search_gpu/res_env_exp 
+
+Time for processing: 0h 0m 0s 6ms
+rmdb Output_colabfold/local_search_gpu/res_env 
+
+Time for processing: 0h 0m 0s 7ms
+mergedbs Output_colabfold/local_search_gpu/qdb Output_colabfold/local_search_gpu/final.a3m Output_colabfold/local_search_gpu/uniref.a3m Output_colabfold/local_search_gpu/bfd.mgnify30.metaeuk30.smag30.a3m 
+
+Merging the results to Output_colabfold/local_search_gpu/final.a3m
+[=================================================================] 1 0s 0ms
+Time for merging to final.a3m: 0h 0m 0s 8ms
+Time for processing: 0h 0m 0s 120ms
+rmdb Output_colabfold/local_search_gpu/bfd.mgnify30.metaeuk30.smag30.a3m 
+
+Time for processing: 0h 0m 0s 6ms
+rmdb Output_colabfold/local_search_gpu/uniref.a3m 
+
+Time for processing: 0h 0m 0s 7ms
+unpackdb Output_colabfold/local_search_gpu/final.a3m Output_colabfold/local_search_gpu --unpack-name-mode 0 --unpack-suffix .a3m 
+
+[=================================================================] 1 0s 0ms
+Time for processing: 0h 0m 0s 85ms
+rmdb Output_colabfold/local_search_gpu/final.a3m 
+
+Time for processing: 0h 0m 0s 6ms
+rmdb Output_colabfold/local_search_gpu/prof_res 
+
+Time for processing: 0h 0m 0s 9ms
+rmdb Output_colabfold/local_search_gpu/prof_res_h 
+
+Time for processing: 0h 0m 0s 8ms
+rmdb Output_colabfold/local_search_gpu/qdb 
+
+Time for processing: 0h 0m 0s 10ms
+rmdb Output_colabfold/local_search_gpu/qdb_h 
+
+Time for processing: 0h 0m 0s 6ms
+ColabFold search completed successfully!
+ColabFold runtime: 1298 seconds (.36 hours)
+
+STEP 2: Finding generated a3m file...
+----------------------------------------
+FASTA header: >A|Protein|
+Expected a3m file: Output_colabfold/local_search_gpu/A_Protein_.a3m
+Using a3m file: Output_colabfold/local_search_gpu/A_Protein_.a3m
+
+STEP 3: Creating FASTA file for Boltz...
+----------------------------------------
+Absolute path to a3m: /n/netscratch/kempner_dev/Lab/bdesinghu/Boltz/Benchmark/kempner_workflow/protein_fold_gpu/H200/6dw1_combined/Output_colabfold/local_search_gpu/A_Protein_.a3m
+Creating prot_pipeline.fasta...
+Created Boltz FASTA file:
+Header: >A|Protein|/n/netscratch/kempner_dev/Lab/bdesinghu/Boltz/Benchmark/kempner_workflow/protein_fold_gpu/H200/6dw1_combined/Output_colabfold/local_search_gpu/A_Protein_.a3m
+Sequence length: 1277
+
+STEP 4: Running Boltz prediction...
+----------------------------------------
+Command: boltz predict prot_pipeline.fasta --cache /n/holylfs06/LABS/kempner_shared/Everyone/workflow/boltz/boltz_db --out_dir Output_boltz/prot_pipeline_gpu --devices 1 --accelerator gpu
+Checking input data.
+Processing 1 inputs with 1 threads.
+Running structure prediction for 1 input.
+Predicting: |          | 0/? [00:00<?, ?it/s]Predicting:   0%|          | 0/1 [00:00<?, ?it/s]Predicting DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]Predicting DataLoader 0: 100%|██████████| 1/1 [00:42<00:00,  0.02it/s]Number of failed examples: 0
+Predicting DataLoader 0: 100%|██████████| 1/1 [00:42<00:00,  0.02it/s]
+Boltz prediction completed successfully!
+Boltz runtime: 76 seconds (.02 hours)
+
+===============================================
+PIPELINE COMPLETED SUCCESSFULLY!
+===============================================
+SUMMARY:
+--------
+Input FASTA: 6dw1_comb.fasta
+Generated a3m: Output_colabfold/local_search_gpu/A_Protein_.a3m
+Boltz FASTA: prot_pipeline.fasta
+Boltz output: Output_boltz/prot_pipeline_gpu
+
+TIMING:
+-------
+ColabFold search: 1298 seconds (.36 hours)
+Boltz prediction: 76 seconds (.02 hours)
+Total pipeline: 1374 seconds (.38 hours)
+
+OUTPUT FILES:
+-------------
+Boltz results:
+total 0
+drwxr-sr-x. 2 bdesinghu kempner_dev 4096 Oct 17 19:27 .
+drwxr-sr-x. 2 bdesinghu kempner_dev 4096 Oct 17 19:27 ..
+drwxr-sr-x. 2 bdesinghu kempner_dev 4096 Oct 17 19:27 boltz_results_prot_pipeline
+
+Pipeline completed at: Fri Oct 17 19:28:41 EDT 2025
+===============================================
