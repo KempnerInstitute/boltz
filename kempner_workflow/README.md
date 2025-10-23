@@ -9,6 +9,6 @@
 | local colab search + Boltz   | GPU| Protein Folding |[protein_fold_gpu](protein_fold_gpu)|
 | local colab search + Boltz   | GPU (A100, H100, and H200)| Protein Folding |[Cluster_Benchmark](Cluster_Benchmark)|
 | local colab search   | DGX-SPark ARM+GB10| Protein Folding |[MSA](DGX-Spark/MSA)|
-|  Boltz   | DGX-Spark ARM+GB10| Protein Folding |[Inference](Infer)|
-|local colab search + Boltz   | DGX-Spark ARM+GB10| Protein Folding |[Inference with A3M file](Infer_MSA)|
+|  Boltz   | DGX-Spark ARM+GB10| Protein Folding |[Inference](DGX-Spark/Infer)|
+|local colab search + Boltz   | DGX-Spark ARM+GB10| Protein Folding |[Inference with A3M file](DGX-Spark/Infer_MSA)|
 
